@@ -22,6 +22,8 @@
    </properties>
 
    <modules>
+      <module>products-service</module>
+      <module>inventory-service</module>
    </modules>
 
    <dependencyManagement>

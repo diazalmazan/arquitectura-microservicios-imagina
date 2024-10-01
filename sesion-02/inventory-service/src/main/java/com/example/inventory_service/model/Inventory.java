@@ -1,4 +1,4 @@
-package com.example.shop_solved.model;
+package com.example.inventory_service.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
