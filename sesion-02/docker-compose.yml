@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  db-products:
+    container_name: db_products
+    image: postgres:15.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ms_products
+      POSTGRES_USER: imagina
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - 5431:5431
+    expose:
+      - 5431
+    command: -p 5431
