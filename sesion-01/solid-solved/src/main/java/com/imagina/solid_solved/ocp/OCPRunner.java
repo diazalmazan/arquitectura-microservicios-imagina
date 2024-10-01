@@ -6,6 +6,9 @@ import org.springframework.boot.CommandLineRunner;
 @Slf4j
 //@Component
 public class OCPRunner implements CommandLineRunner {
+
+    DescuentoFactory descuentoFactory = new DescuentoFactory();
+
     @Override
     public void run(String... args) throws Exception {
         log.info("===========================================");
@@ -18,13 +21,14 @@ public class OCPRunner implements CommandLineRunner {
 
         log.info("El precio actual de Astro Bot es {}", astroBot.getPrecio());
         log.info("Calculando precio para Astro Bot con descuento de BLACKFRIDAY");
-        var precioDescuentoBF = calculadoraPrecios.calcularPrecio(astroBot, "BLACKFRIDAY");
+
+        var precioDescuentoBF = calculadoraPrecios.calcularPrecio(astroBot, descuentoFactory.getDescuento("NAVIDAD"));
         log.info("El precio tras el descuento de BLACKFRIDAY es: {}", precioDescuentoBF);
 
         log.info("El precio actual de zapatillas es {}", zapatillas.getPrecio());
         log.info("Calculando precio para Zapatillas con descuento de NAVIDAD");
-        var precioDescuentoNV = calculadoraPrecios.calcularPrecio(zapatillas, "NAVIDAD");
-        log.info("El precio tras el descuento de NAVIDAD es: {}", precioDescuentoNV);
+        //var precioDescuentoNV = calculadoraPrecios.calcularPrecio(zapatillas, "NAVIDAD");
+        //log.info("El precio tras el descuento de NAVIDAD es: {}", precioDescuentoNV);
 
         log.info("===========================================");
     }

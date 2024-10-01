@@ -25,7 +25,7 @@ public class LSPRunner implements CommandLineRunner {
     }
 
     private static void queVuelenLosPajaros(List<Pajaro> pajaros) {
-        pajaros.stream()
-                .forEach(pajaro -> pajaro.volar());
+        /*pajaros.stream()
+                .forEach(pajaro -> pajaro.volar());*/
     }
 }

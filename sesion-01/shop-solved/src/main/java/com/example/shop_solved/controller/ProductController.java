@@ -1,7 +1,7 @@
 package com.example.shop_solved.controller;
 
-import com.example.shop_solved.ManagementService;
 import com.example.shop_solved.model.Product;
+import com.example.shop_solved.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,25 +13,25 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    private ManagementService managementService;
+    private ProductService productService;
 
     @GetMapping
     public List<Product> getProducts() {
-        return managementService.getProducts();
+        return productService.getProducts();
     }
 
     @GetMapping("/{id}")
     public Product getProduct(@PathVariable Long id) {
-        return managementService.getProduct(id);
+        return productService.getProduct(id);
     }
 
     @PostMapping
     public Product addProduct(@RequestBody Product product) {
-        return managementService.addProduct(product);
+        return productService.addProduct(product);
     }
 
     @DeleteMapping("/{id}")
     public void deleteProduct(@PathVariable Long id) {
-        managementService.deleteProduct(id);
+        productService.deleteProduct(id);
     }
 }

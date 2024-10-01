@@ -1,13 +1,13 @@
 package com.imagina.solid_solved.dip;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class ServicioDePedidos {
 
-    private RepositorioDePedidosMySQL repositorio;
-
-
-    public ServicioDePedidos() {
-        repositorio = new RepositorioDePedidosMySQL();
-    }
+    @Autowired
+    private RepositorioDePedidos repositorio;
 
     public void crearPedido(Pedido pedido) {
         repositorio.guardar(pedido);

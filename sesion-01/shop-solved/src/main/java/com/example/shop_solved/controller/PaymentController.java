@@ -1,7 +1,7 @@
 package com.example.shop_solved.controller;
 
-import com.example.shop_solved.ManagementService;
 import com.example.shop_solved.model.Payment;
+import com.example.shop_solved.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,20 +12,20 @@ import java.util.List;
 public class PaymentController {
 
     @Autowired
-    private ManagementService managementService;
+    private PaymentService paymentService;
 
     @GetMapping
     public List<Payment> getPayments() {
-        return managementService.getPayments();
+        return paymentService.getPayments();
     }
 
     @PostMapping
     public Payment addPayment(@RequestBody Payment payment) {
-        return managementService.addPayment(payment);
+        return paymentService.addPayment(payment);
     }
 
     @DeleteMapping("/{id}")
     public void deletePayment(@PathVariable Long id) {
-        managementService.deletePayment(id);
+        paymentService.deletePayment(id);
     }
 }

@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Tema01InicialApplication {
+public class ShopApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Tema01InicialApplication.class, args);
+		SpringApplication.run(ShopApplication.class, args);
 	}
 
 }

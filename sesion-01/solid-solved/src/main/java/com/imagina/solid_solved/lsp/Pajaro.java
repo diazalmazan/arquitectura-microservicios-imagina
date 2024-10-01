@@ -9,7 +9,5 @@ public class Pajaro {
         log.info("Puedo comer.");
     }
 
-    public void volar() {
-        log.info("Puedo volar.");
-    }
+
 }

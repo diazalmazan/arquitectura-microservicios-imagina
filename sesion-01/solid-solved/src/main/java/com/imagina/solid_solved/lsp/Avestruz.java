@@ -9,9 +9,4 @@ public class Avestruz extends Pajaro {
     public void comer() {
         log.info("Puedo comer cocodrilo.");
     }
-
-    public void volar() {
-        log.info("No puedo volar.");
-        throw new UnsupportedOperationException();
-    }
 }
