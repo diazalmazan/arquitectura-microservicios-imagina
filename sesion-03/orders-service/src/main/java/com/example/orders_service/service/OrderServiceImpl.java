@@ -1,5 +1,6 @@
 package com.example.orders_service.service;
 
+import com.example.orders_service.clients.InventoryClient;
 import com.example.orders_service.exception.InsufficientInventoryException;
 import com.example.orders_service.model.Order;
 import com.example.orders_service.repository.OrderRepository;
@@ -21,6 +22,9 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private WebClient inventoryWebClient;
 
+    @Autowired
+    private InventoryClient inventoryClient;
+
     @Override
     public List<Order> getOrders() {
         return orderRepository.findAll();
@@ -34,6 +38,14 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Mono<Order> addOrder(Order order) {
+        int quantity = inventoryClient.getStock(order.getProductId());
+        if(quantity < order.getQuantity()) {
+            log.error("Insufficient inventory for product ID: {}", order.getProductId());
+            return Mono.error(new InsufficientInventoryException("Insufficient inventory for product ID: " + order.getProductId()));
+        } else {
+            return Mono.fromCallable(() -> orderRepository.save(order));
+        }
+        /*
         return inventoryWebClient.get()
                 .uri("/" + order.getProductId())
                 .retrieve()
@@ -49,7 +61,7 @@ public class OrderServiceImpl implements OrderService {
                 .onErrorResume(e -> {
                     log.error("Error occurred while adding order");
                     return Mono.error(new RuntimeException("Error occurred while adding order", e));
-                });
+                });*/
     }
 
     @Override

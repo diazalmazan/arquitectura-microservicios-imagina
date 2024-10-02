@@ -55,3 +55,14 @@ services:
     expose:
       - 5434
     command: -p 5434
+
+  ## Rabbit MQ
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"  # Puerto para comunicación
+      - "15672:15672"  # Puerto para la interfaz de administración
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
