@@ -22,6 +22,8 @@
    </properties>
 
    <modules>
+      <module>orders-service</module>
+      <module>payments-service</module>
       <module>products-service</module>
       <module>inventory-service</module>
    </modules>

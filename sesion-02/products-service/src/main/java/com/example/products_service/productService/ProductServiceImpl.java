@@ -1,4 +1,4 @@
-package com.example.products_service.ProductService;
+package com.example.products_service.productService;
 
 import com.example.products_service.model.Product;
 import com.example.products_service.repository.ProductRepository;
@@ -29,6 +29,7 @@ public class ProductServiceImpl implements ProductService{
                 .orElseThrow(NoResultException::new);
     }
 
+    //@CircuitBreaker(name = "inventoryService", fallbackMethod = "fallbackAddOrder")
     @Override
     public Product addProduct(Product product) {
         String url = "/add?productId=" + product.getId() + "&quantity=" + 1;
@@ -44,4 +45,9 @@ public class ProductServiceImpl implements ProductService{
 
         return productRepository.save(product);
     }
+
+    /*
+    private Mono<Order> fallbackAddOrder(Order order, Throwable t) {
+        return Mono.error(new RuntimeException("Fallback: Unable to add order due to inventory service issue", t));
+    }*/
 }

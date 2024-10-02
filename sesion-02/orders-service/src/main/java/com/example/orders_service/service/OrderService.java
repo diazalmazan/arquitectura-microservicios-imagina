@@ -1,6 +1,7 @@
 package com.example.orders_service.service;
 
 import com.example.orders_service.model.Order;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public interface OrderService {
 
     Order getOrder(Long id);
 
-    Order addOrder(Order order);
+    Mono<Order> addOrder(Order order);
 
     void deleteOrder(Long id);
 }
