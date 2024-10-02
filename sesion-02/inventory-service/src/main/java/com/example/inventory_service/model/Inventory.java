@@ -1,4 +1,4 @@
-package com.example.shop_solved.model;
+package com.example.inventory_service.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,10 +9,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity
-public class Product {
+public class Inventory {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private double price;
+    @Column(name = "product_id")
+    private Long productId;
+    private int quantity;
 }

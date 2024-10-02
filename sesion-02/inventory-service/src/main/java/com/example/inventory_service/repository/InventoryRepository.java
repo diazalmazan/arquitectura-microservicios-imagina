@@ -1,6 +1,6 @@
-package com.example.shop_solved.repository;
+package com.example.inventory_service.repository;
 
-import com.example.shop_solved.model.Inventory;
+import com.example.inventory_service.model.Inventory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

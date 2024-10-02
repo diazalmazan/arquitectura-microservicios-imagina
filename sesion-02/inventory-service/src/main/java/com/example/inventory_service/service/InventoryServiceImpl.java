@@ -1,23 +1,21 @@
-package com.example.shop_solved.service;
+package com.example.inventory_service.service;
 
-import com.example.shop_solved.model.Inventory;
-import com.example.shop_solved.repository.InventoryRepository;
-import com.example.shop_solved.repository.ProductRepository;
+import com.example.inventory_service.model.Inventory;
+import com.example.inventory_service.repository.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class InventoryService {
+public class InventoryServiceImpl implements InventoryService {
 
     @Autowired
     private InventoryRepository inventoryRepository;
-    @Autowired
-    private ProductRepository productRepository;
 
     public void addProductToInventory(Long productId, int quantity) {
-        var product = productRepository.findById(productId);
         var inventory = new Inventory();
-        inventory.setProductId(product.get().getId());
+        inventory.setProductId(productId);
         inventory.setQuantity(quantity);
         inventoryRepository.save(inventory);
     }
@@ -30,5 +28,10 @@ public class InventoryService {
 
     public int getProductStock(Long productId) {
         return inventoryRepository.findByProductId(productId).getQuantity();
+    }
+
+    @Override
+    public List<Inventory> getAllProductsInventory() {
+        return inventoryRepository.findAll();
     }
 }
