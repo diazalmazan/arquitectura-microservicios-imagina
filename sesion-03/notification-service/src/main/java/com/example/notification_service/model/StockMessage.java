@@ -1,4 +1,4 @@
-package com.example.products_service.model;
+package com.example.notification_service.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,5 +12,4 @@ import lombok.ToString;
 public class StockMessage {
     private Long productId;
     private int quantity;
-
 }

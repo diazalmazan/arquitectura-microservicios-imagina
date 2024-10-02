@@ -4,7 +4,6 @@ import com.example.inventory_service.model.Inventory;
 import com.example.inventory_service.repository.InventoryRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,12 +15,7 @@ public class InventoryServiceImpl implements InventoryService {
     @Autowired
     private InventoryRepository inventoryRepository;
 
-    @Autowired
-    private ServletWebServerApplicationContext webServerAppCtxt;
 
-    public int getPort() {
-        return webServerAppCtxt.getWebServer().getPort();
-    }
 
     public void addProductToInventory(Long productId, int quantity) {
         var inventory = new Inventory();
@@ -37,7 +31,6 @@ public class InventoryServiceImpl implements InventoryService {
     }
 
     public int getProductStock(Long productId) {
-        log.info("Port {}", getPort());
         return inventoryRepository.findByProductId(productId).getQuantity();
     }
 

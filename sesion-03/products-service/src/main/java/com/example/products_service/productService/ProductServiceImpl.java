@@ -1,7 +1,7 @@
 package com.example.products_service.productService;
 
+import com.example.products_service.client.InventoryClient;
 import com.example.products_service.model.Product;
-import com.example.products_service.producer.InventoryProducer;
 import com.example.products_service.repository.ProductRepository;
 import jakarta.persistence.NoResultException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class ProductServiceImpl implements ProductService{
     private WebClient inventoryWebClient;
 
     @Autowired
-    private InventoryProducer inventoryProducer;
+    private InventoryClient inventoryClient;
 
     @Override
     public List<Product> getAllProducts() {
@@ -36,19 +36,8 @@ public class ProductServiceImpl implements ProductService{
     //@CircuitBreaker(name = "inventoryService", fallbackMethod = "fallbackAddOrder")
     @Override
     public Product addProduct(Product product) {
-
         var productSaved = productRepository.save(product);
-        //String url = "/add?productId=" + productSaved.getId() + "&quantity=" + 1;
-        inventoryProducer.setAddStockMessage(productSaved.getId(), 1);
-        // Realizar la petición POST
-        /*inventoryWebClient.post()
-                .uri(url)
-                .retrieve()
-                .bodyToMono(Void.class)
-                .doOnSuccess(response -> System.out.println("Stock añadido con éxito"))
-                .doOnError(error -> System.err.println("Error al añadir stock: " + error.getMessage()))
-                .block();*/
-
+        inventoryClient.addStock(productSaved.getId(), 1);
         return productSaved;
     }
 
