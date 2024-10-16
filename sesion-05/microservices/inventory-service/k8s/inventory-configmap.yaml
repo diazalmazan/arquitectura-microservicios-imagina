@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: inventory-config
+data:
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://db-inventory:5432/ms_inventory"
+  SPRING_DATASOURCE_USERNAME: "imagina"
+  SPRING_DATASOURCE_PASSWORD: "1234"
+
