@@ -53,3 +53,29 @@ INSERT INTO product (id, name, price, description) VALUES (3, 'Keyboard', 75.00,
 INSERT INTO inventory (inventoryId, productId, stock) VALUES (1, 1, 50);
 INSERT INTO inventory (inventoryId, productId, stock) VALUES (2, 2, 200);
 INSERT INTO inventory (inventoryId, productId, stock) VALUES (3, 3, 100);
+```
+
+### 7. Application.properties
+```properties
+spring.application.name=inventory-service
+
+
+# H2 Database Configuration
+spring.datasource.url=jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=password
+spring.sql.init.platform=h2
+spring.h2.console.enabled=true
+
+# JPA (Hibernate) Configuration
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+
+# H2 Console Configuration
+spring.h2.console.path=/h2-console  # Ruta para acceder a la consola H2
+spring.h2.console.settings.web-allow-others=true
+
+
+```
