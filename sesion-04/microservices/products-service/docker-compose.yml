@@ -1,0 +1,35 @@
+services:
+  products:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8084:8084"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://host.docker.internal:5434/ms_products
+      SPRING_DATASOURCE_USERNAME: imagina
+      SPRING_DATASOURCE_PASSWORD: 1234
+    depends_on:
+      - db-products
+    networks:
+      - products
+  db-products:
+    container_name: db_products
+    image: postgres:15.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ms_products
+      POSTGRES_USER: imagina
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - 5434:5434
+    expose:
+      - 5434
+    command: -p 5434
+    volumes:
+      - ./products_data:/var/lib/postgresql/data
+    networks:
+      - products
+networks:
+  products:
+    name: products-network

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: inventory
+  template:
+    metadata:
+      labels:
+        app: inventory
+    spec:
+      containers:
+        - name: inventory
+          image: inventory-inventory:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8081
+          envFrom:
+            - configMapRef:
+                name: inventory-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: inventory
+spec:
+  type: LoadBalancer
+  selector:
+    app: inventory
+  ports:
+    - port: 8081
+      targetPort: 8081

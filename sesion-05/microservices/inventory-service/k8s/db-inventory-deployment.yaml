@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-inventory
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db-inventory
+  template:
+    metadata:
+      labels:
+        app: db-inventory
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:15.2
+          env:
+            - name: POSTGRES_DB
+              value: "ms_inventory"
+            - name: POSTGRES_USER
+              value: "imagina"
+            - name: POSTGRES_PASSWORD
+              value: "1234"
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: inventory-data
+      volumes:
+        - name: inventory-data
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-inventory
+spec:
+  type: ClusterIP
+  selector:
+    app: db-inventory
+  ports:
+    - port: 5432
+      targetPort: 5432
