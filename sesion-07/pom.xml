@@ -8,7 +8,10 @@
         <module>domain</module>
         <module>infrastructure</module>
         <module>application</module>
+<<<<<<< HEAD
         <module>api-definition</module>
+=======
+>>>>>>> 1ab50b7221baaf4ecf86b42016d4bea9c6aec187
     </modules>
 
     <groupId>com.tribune</groupId>

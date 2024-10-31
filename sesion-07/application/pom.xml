@@ -33,10 +33,13 @@
             <artifactId>domain</artifactId>
             <type>test-jar</type>
         </dependency>
+<<<<<<< HEAD
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-commons</artifactId>
         </dependency>
+=======
+>>>>>>> 1ab50b7221baaf4ecf86b42016d4bea9c6aec187
     </dependencies>
 
     <build>

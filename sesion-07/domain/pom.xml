@@ -62,7 +62,10 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
             </plugin>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1ab50b7221baaf4ecf86b42016d4bea9c6aec187
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -71,11 +74,14 @@
                     <target>${maven.compiler.target}</target>
                     <annotationProcessorPaths>
                         <path>
+<<<<<<< HEAD
                             <groupId>org.mapstruct</groupId>
                             <artifactId>mapstruct-processor</artifactId>
                             <version>${mapstruct.version}</version>
                         </path>
                         <path>
+=======
+>>>>>>> 1ab50b7221baaf4ecf86b42016d4bea9c6aec187
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
                             <version>${lombok.version}</version>
@@ -85,6 +91,14 @@
                             <artifactId>lombok-mapstruct-binding</artifactId>
                             <version>${lombok-mapstruct-binding.version}</version>
                         </path>
+<<<<<<< HEAD
+=======
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${mapstruct.version}</version>
+                        </path>
+>>>>>>> 1ab50b7221baaf4ecf86b42016d4bea9c6aec187
                     </annotationProcessorPaths>
                     <compilerArgs>
                         <compilerArg>
@@ -95,5 +109,8 @@
             </plugin>
         </plugins>
     </build>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1ab50b7221baaf4ecf86b42016d4bea9c6aec187
 </project>

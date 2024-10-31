@@ -2,7 +2,11 @@ package com.tribune.backend.infrastructure.mappers;
 
 
 import com.tribune.backend.domain.context.element.common.address.Address;
+<<<<<<< HEAD
 import com.tribune.backend.infrastructure.persistance.entities.AddressEntity;
+=======
+import com.tribune.backend.infrastructure.ports.out.persistance.entities.AddressEntity;
+>>>>>>> 1ab50b7221baaf4ecf86b42016d4bea9c6aec187
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

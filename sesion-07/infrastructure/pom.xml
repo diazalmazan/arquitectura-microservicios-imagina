@@ -21,10 +21,13 @@
             <artifactId>domain</artifactId>
         </dependency>
         <dependency>
+<<<<<<< HEAD
             <groupId>${project.groupId}</groupId>
             <artifactId>api-definition</artifactId>
         </dependency>
         <dependency>
+=======
+>>>>>>> 1ab50b7221baaf4ecf86b42016d4bea9c6aec187
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
         </dependency>
