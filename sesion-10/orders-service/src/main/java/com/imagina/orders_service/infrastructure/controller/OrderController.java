@@ -1,8 +1,8 @@
-package com.imagina.orders_service;
+package com.imagina.orders_service.infrastructure.controller;
 
-import com.imagina.orders_service.CreateOrderUseCase;
-import com.imagina.orders_service.GetOrderStatusUseCase;
-import com.imagina.orders_service.Order;
+import com.imagina.orders_service.application.usecase.CreateOrderUseCase;
+import com.imagina.orders_service.application.usecase.GetOrderStatusUseCase;
+import com.imagina.orders_service.domain.model.Order;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

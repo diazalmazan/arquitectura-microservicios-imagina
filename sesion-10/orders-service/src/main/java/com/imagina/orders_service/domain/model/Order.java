@@ -1,4 +1,4 @@
-package com.imagina.orders_service;
+package com.imagina.orders_service.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

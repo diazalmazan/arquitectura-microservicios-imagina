@@ -1,5 +1,7 @@
-package com.imagina.orders_service;
+package com.imagina.orders_service.application.usecase;
 
+import com.imagina.orders_service.domain.model.Order;
+import com.imagina.orders_service.application.port.out.OrderRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

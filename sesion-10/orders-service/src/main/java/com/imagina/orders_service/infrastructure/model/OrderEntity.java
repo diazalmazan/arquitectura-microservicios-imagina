@@ -1,4 +1,4 @@
-package com.imagina.orders_service;
+package com.imagina.orders_service.infrastructure.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

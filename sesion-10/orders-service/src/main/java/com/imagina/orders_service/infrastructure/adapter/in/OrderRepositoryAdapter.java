@@ -1,5 +1,10 @@
-package com.imagina.orders_service;
+package com.imagina.orders_service.infrastructure.adapter.in;
 
+import com.imagina.orders_service.infrastructure.adapter.jpa.OrderJpaRepository;
+import com.imagina.orders_service.infrastructure.adapter.OrderMapper;
+import com.imagina.orders_service.domain.model.Order;
+import com.imagina.orders_service.application.port.out.OrderRepository;
+import com.imagina.orders_service.infrastructure.model.OrderEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

@@ -1,5 +1,7 @@
-package com.imagina.orders_service;
+package com.imagina.orders_service.infrastructure.adapter.in;
 
+import com.imagina.orders_service.application.usecase.UpdateOrderStatusUseCase;
+import com.imagina.orders_service.infrastructure.model.InventoryResponseEventDto;
 import lombok.AllArgsConstructor;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;

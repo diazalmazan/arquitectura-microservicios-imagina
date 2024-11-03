@@ -1,5 +1,7 @@
-package com.imagina.orders_service;
+package com.imagina.orders_service.infrastructure.adapter;
 
+import com.imagina.orders_service.domain.model.Order;
+import com.imagina.orders_service.infrastructure.model.OrderEntity;
 import org.springframework.stereotype.Component;
 
 @Component
